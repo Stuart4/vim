@@ -2,8 +2,8 @@ noremap l h
 noremap ; l
 noremap h ;
 
-nnoremap j gj
-nnorempa k gk
+noremap j gj
+noremap k gk
 
 set hlsearch
 set number

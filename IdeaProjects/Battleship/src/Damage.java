@@ -4,5 +4,5 @@
 interface Damage {
 
 	void hit (int index);
-	int[] gethealth ();
+	boolean[] getHealth ();
 }

@@ -2,7 +2,7 @@
  * Created by jake on 7/4/14.
  */
 public class Ship {
-	private int size = 2;
+	protected int size = 2;
 	private boolean vertical = false;
 	private int x = 0;
 	private int y = 0;

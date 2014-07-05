@@ -52,11 +52,12 @@ public class Board {
 	private void placeShip(Ship ship, boolean horizontal, int startX, int startY){
 		if (horizontal){
 			for (int i = 0; i < ship.size; i++){
-				board[startY][startX] = 1;
+				board[startY][startX + i] = 1;
 			}
 		} else {
 			for (int i = 0; i < ship.size; i++){
-				board[startY][startX] = 1;
+				System.out.println(startX + "," + (startY + i) + ":" + ship.toString());
+				board[startY + i][startX] = 1;
 			}
 		}
 	}
@@ -77,6 +78,11 @@ public class Board {
 	}
 
 	private boolean doesStand (Ship ship, int index, int columnIndex){
+
+		if (columnIndex + ship.size > board[0].length){
+			return false;
+		}
+
 		int[] horizontal = new int[yDim];
 
 		for (int i = 0; i < horizontal.length; i++){

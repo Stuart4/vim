@@ -15,7 +15,6 @@ public class Board {
 		ships[0] = new AttackBoat();
 		ships[1] = new Carrier();
 
-		System.out.println(doesStand(ships[0], 0, 6));
 
 
 		for (Ship k : ships){
@@ -56,7 +55,6 @@ public class Board {
 			}
 		} else {
 			for (int i = 0; i < ship.size; i++){
-				System.out.println(startX + "," + (startY + i) + ":" + ship.toString());
 				board[startY + i][startX] = 1;
 			}
 		}
@@ -106,8 +104,8 @@ public class Board {
 			for (int n = 0; n < board.length; n++){
 				switch (board[i][n]){
 					case (0):
-						out += " % ";
-						break;
+//						out += " % ";     //Enable to debug
+//						break;
 					case (1):
 						out += " = ";
 						break;

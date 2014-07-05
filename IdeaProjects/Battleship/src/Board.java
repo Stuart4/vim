@@ -15,6 +15,9 @@ public class Board {
 		ships[0] = new AttackBoat();
 		ships[1] = new Carrier();
 
+		System.out.println(doesStand(ships[0], 0, 6));
+
+
 		for (Ship k : ships){
 			 while (!placeRnd(k));
 		}
@@ -26,8 +29,8 @@ public class Board {
 		Random rnd = new Random();
 
 		if (rnd.nextBoolean()) {
-			int index = rnd.nextInt(8);
-			int anInt = rnd.nextInt(8);
+			int index = rnd.nextInt(7);
+			int anInt = rnd.nextInt(7);
 			if (doesFit(ship, index, board[anInt])) {
 				placeShip(ship, true, index, anInt);
 				return true;
@@ -35,8 +38,8 @@ public class Board {
 				return false;
 			}
 		} else {
-			int index = rnd.nextInt(8);
-			int columnIndex = rnd.nextInt(8);
+			int index = rnd.nextInt(7);
+			int columnIndex = rnd.nextInt(7);
 			if (doesStand(ship, index, columnIndex)){
 				placeShip(ship, false, index, columnIndex);
 				return true;
@@ -49,16 +52,15 @@ public class Board {
 	private void placeShip(Ship ship, boolean horizontal, int startX, int startY){
 		if (horizontal){
 			for (int i = 0; i < ship.size; i++){
-				board[startY][startX + i] = 1;
+				board[startY][startX] = 1;
 			}
 		} else {
 			for (int i = 0; i < ship.size; i++){
-				board[startY + i][startX] = 1;
+				board[startY][startX] = 1;
 			}
 		}
 	}
 	private boolean doesFit(Ship ship, int index, int[] spaces){
-
 		int length = ship.getSize();
 
 		if ( (length + index) > spaces.length - 1){
